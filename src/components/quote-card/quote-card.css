@@ -1,6 +1,6 @@
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   display: block;
   text-align: center;
   width: 100%;
@@ -13,6 +13,14 @@ p {
   border: 5px black solid;
   border-radius: 30%;
   box-shadow: 5px 5px 40px black;
-  min-width: 25vw;
+  width: 50vw;
+  height: 30vh;
   align-items: center;
+  justify-content: center;
+}
+
+hr {
+  width: 50%;
+  align-content: center;
+  box-shadow: 3px 3px 8px red;
 }

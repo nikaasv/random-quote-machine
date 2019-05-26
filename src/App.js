@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-// import { quotes } from "./constants";
 import QuoteCard from "./components/quote-card";
+import Spinner from "./components/spinner";
 
 class App extends React.Component {
   state = { quote: null, error: null };
@@ -11,6 +11,7 @@ class App extends React.Component {
   };
 
   getQuote = () => {
+    this.setState({ loading: true });
     fetch(
       "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json"
     )
@@ -18,11 +19,13 @@ class App extends React.Component {
         if (!response.ok) {
           return response
             .json()
-            .then(json => this.setState({ error: json, quote: null }));
+            .then(error =>
+              this.setState({ error, quote: null, loading: false })
+            );
         }
         return response.json();
       })
-      .then(quote => this.setState({ quote, error: null }));
+      .then(quote => this.setState({ quote, error: null, loading: false }));
   };
 
   componentDidMount() {
@@ -30,10 +33,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { quoteText, quoteAuthor } = this.state.quote || {};
+    const { quoteText, quoteAuthor = "Anonymous" } = this.state.quote || {};
     return (
       <main className="App-main">
-        {this.state.quote && (
+        <Spinner open={this.state.loading} />
+        {this.state.quote && !this.state.loading && (
           <QuoteCard
             onClick={this.clickHandler}
             quoteText={quoteText}
