@@ -1,26 +1,26 @@
 export const quotes = [
   {
-    quote: "quote 1",
-    author: "pippi"
+    quoteText: "quote 1",
+    quoteAuthor: "pippi"
   },
   {
-    quote: "quote 2",
-    author: "pippi2"
+    quoteText: "quote 2",
+    quoteAuthor: "pippi2"
   },
   {
-    quote: "quote 3",
-    author: "pippi3"
+    quoteText: "quote 3",
+    quoteAuthor: "pippi3"
   },
   {
-    quote: "quote 4",
-    author: "pippi4"
+    quoteText: "quote 4",
+    quoteAuthor: "pippi4"
   },
   {
-    quote: "quote 5",
-    author: "pippi5"
+    quoteText: "quote 5",
+    quoteAuthor: "pippi5"
   },
   {
-    quote: "quote 6",
-    author: "pippi6"
+    quoteText: "quote 6",
+    quoteAuthor: "pippi6"
   }
 ];

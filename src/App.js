@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Button from "./components/button";
 import { quotes } from "./constants";
+import QuoteCard from "./components/quote-card";
 
 class App extends React.Component {
   state = { quoteNumber: 0 };
@@ -10,13 +10,17 @@ class App extends React.Component {
   };
 
   render() {
+    const { quoteText, quoteAuthor } = quotes[
+      this.state.quoteNumber % quotes.length
+    ];
     return (
-      <div className="App">
-        <header className="App-header">
-          Current quote: {quotes[this.state.quoteNumber % quotes.length].quote}
-          <Button onClick={this.clickHandler}>Click me</Button>
-        </header>
-      </div>
+      <main className="App-main">
+        <QuoteCard
+          onClick={this.clickHandler}
+          quoteText={quoteText}
+          quoteAuthor={quoteAuthor}
+        />
+      </main>
     );
   }
 }
